@@ -33,7 +33,7 @@ switch (ds)
         }
 break;
     case 2:
-        Console.WriteLine("Queue Operations\n0.Exit\n1.Enqueue\n2.Display\nEnter your choice:");
+        Console.WriteLine("Queue Operations\n0.Exit\n1.Enqueue\n2.Dequeue\n3.Display\nEnter your choice:");
 int option2 = Convert.ToInt32(Console.ReadLine());
 while (option2 != 0)
 {
@@ -45,13 +45,16 @@ while (option2 != 0)
             queue.Enqueue(data);
             break;
         case 2:
+            queue.Dequeue();
+            break;
+        case 3:
             queue.Display();
             break;
         default:
             Console.WriteLine("Invalid choice.");
             break;
     }
-    Console.WriteLine("Queue Operations\n0.Exit\n1.Enqueue\n2.Display\nEnter your choice:");
+    Console.WriteLine("Queue Operations\n0.Exit\n1.Enqueue\n2.Dequeue\n3.Display\nEnter your choice:");
     option2 = Convert.ToInt32(Console.ReadLine());
 }
 break;
