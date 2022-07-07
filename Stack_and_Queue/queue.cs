@@ -8,42 +8,36 @@ namespace Stack_and_Queue
 {
     internal class queue
     {
-        Node top;
-        public void Stack_Queue()
-        {
-            this.top = null;
-        }
-        public void add_Data(int data)
+        Node head = null;
+        public void Enqueue(int data)
         {
             Node node = new Node(data);
-            if (this.top == null)
-            {
-                node.next = null;
-            }
+            if (head == null)
+                head = node;
             else
             {
-                node.next = this.top;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
             }
-            this.top = node;
-            Console.WriteLine("Data added to the top: " + data);
+            Console.WriteLine(data + " is inserted in queue.");
         }
-        public void peak_data()
+        public void Display()
         {
-            if (this.top == null)
-                Console.WriteLine("Stack is Empty.");
+            Node temp = head;
+            if (temp == null)
+                Console.WriteLine("Queue is empty.");
             else
-                Console.WriteLine("Data at the peak of stack is: " + this.top.data + "\n");
-        }
-        public void pop_data()
-        {
-            if (this.top == null)
             {
-                Console.WriteLine("Stack is Empty.");
-                return;
+                while (temp != null)
+                {
+                    Console.WriteLine(temp.data);
+                    temp = temp.next;
+                }
             }
-            Console.WriteLine(this.top.data + " is popped from stack.\n");
-            this.top = this.top.next;
-            peak_data();
         }
     }
 }
